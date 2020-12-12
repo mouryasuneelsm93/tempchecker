@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>temprature</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		h1 {
+			color: #666;
+			font-size: 20px;
+			font-weight: bold;
+			text-shadow: 1px 1px red;
+			text-transform: uppercase;
+			font-style: italic;
+			text-align: center;
+		}
+
+		@media screen and (min-width:1300px) {
+			h1 {
+				color: #666;
+				font-size: 40px;
+				font-weight: bold;
+				text-shadow: 1px 1px red;
+				text-transform: uppercase;
+				font-style: italic;
+				text-align: center;
+			}
+
+		}
+
+		.jumbotron {
+
+			background-color: rgba(0, 0, 0, .2);
+			border-radius: 0px;
+			background-image: url('temps.jpg');
+			background-size: cover;
+
+			height: auto;
+			background-repeat: no-repeat;
+		}
+
+		#selectBox {
+			width: 200px;
+			height: 50px;
+			background-color: grey;
+			color: white;
+			font-size: 20px;
+		}
+
+		#s1 {
+			width: 100%;
+			height: auto;
+
+		}
+
+		.input {
+			width: 200px;
+			height: 50px;
+			border-radius: 0px;
+
+
+		}
+
+		.button {
+			width: 200px;
+			height: 50px;
+			border-radius: 0px;
+			background-color: ;
+			color: white;
+			background-color: rgba(255, 0, 0, .2);
+			font-size: 30px;
+
+		}
+
+		.a1 {
+			padding-top: 10%;
+			padding-bottom: 13%;
+
+		}
+	</style>
+</head>
+
+<body>
+
+	<section id="s1">
+		<div class="jumbotron">
+			<div class="container ">
+				<h1>Temperature Converter</h1>
+			</div>
+
+			<div class="row a1 text-center">
+				<div class="col">
+				</div>
+				<div class="col-sm-4.8">
+					<form>
+						<div class="row">
+							<div class="col p-3 ">
+								<input type="text" class="form-control input" id="result" placeholder="Temperature">
+							</div>
+							<div class="col p-3">
+								<select id="selectBox">
+									<option value="1">Fahrenheit</option>
+									<option value="2">Celsius</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col p-3">
+								<input type="button" name="" class="button" value="Conver" onclick="display()">
+							</div>
+							<div class="col p-3">
+								<input type="button" name="" class="button" value="Clear" onclick="res()">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col">
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+
+
+
+		function display() {
+			//console.log(b);
+
+			var a = document.getElementById("result").value;
+			console.log(a);
+
+
+			if (a == "") {
+
+				alert("please enter value first");
+			}
+			else {
+
+				var selectBox = document.getElementById("selectBox");
+				var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+				// console.log(b);
+
+				if (selectedValue == 1) {
+
+					result = parseFloat(parseFloat(a) * (9 / 5) + 32);
+					document.getElementById("result").value = result;
+					console.log(a);
+
+				}
+				else if (selectedValue == 2) {
+					console.log(a);
+					result = parseFloat((parseFloat(a) - 32) / (9 / 5));
+					document.getElementById("result").value = result;
+					console.log(result);
+				}
+			}
+		}
+
+		function res() {
+			document.getElementById("result").value = "";
+
+		}
+
+	</script>
+</body>
+
+</html>
